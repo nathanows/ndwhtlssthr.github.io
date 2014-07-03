@@ -6,14 +6,14 @@ pygments:         true
 permalink:        pretty
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+title:            Nathan Owsiany
+tagline:          'The personal blog of Nathan Owsiany'
+description:      'The personal blog of Nathan Owsiany.'
+url:              http://nathan.owsiany.me
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Nathan Owsiany'
+  url:            https://twitter.com/nathanows
 
 paginate:         5
 
@@ -21,4 +21,4 @@ paginate:         5
 version:          2.0.0
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/ndwhtlssthr/ndwhtlssthr.github.io
