@@ -4,7 +4,7 @@
  <title>Nathan Owsiany</title>
  <link href="http://nathan.owsiany.me/atom.xml" rel="self"/>
  <link href="http://nathan.owsiany.me/"/>
- <updated>2014-07-04T00:17:14-07:00</updated>
+ <updated>2014-07-04T14:41:29-07:00</updated>
  <id>http://nathan.owsiany.me</id>
  <author>
    <name>Nathan Owsiany</name>
@@ -234,15 +234,35 @@ g. Click &lt;code&gt;Create repository&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;One of the directories that Jekyll generates when serving up the site locally is a _site directory. This file contains all of the necessary static files to view the site. For the purposes of our GitHub Page we don&amp;#39;t actually want to upload this, so we&amp;#39;re going to create a .gitignore file in our directory which will tell Git to ignore the files listed in it.&lt;/p&gt;
 
-&lt;h1&gt;Need&lt;/h1&gt;
+&lt;p&gt;a. Create our &lt;code&gt;.gitignore&lt;/code&gt; file by navigating to the project directory in Terminal, and running:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;```
+touch .gitignore
+```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;b. Because this file starts with a &amp;#39;.&amp;#39;, the OS will hide this file by default. There are a few ways to show this file, so choose one of the following and open the newly created file in your text editor:
+    - I use a Finder replacement called &lt;a href=&quot;http://cocoatech.com/pathfinder/&quot;&gt;Path Finder&lt;/a&gt; in which I can just go to the view menu and select &amp;#39;Show Invisible Files&amp;#39;.
+    - Path Finder costs money, so a free solution is to download a small freeware app called &lt;a href=&quot;http://nektony.com/products/funter&quot;&gt;Funter&lt;/a&gt; that adds an icon to your menubar allowing you to quickly show and hide invisible files.
+    - Finally, if you want something free that you don&amp;#39;t have to install, you can follow the &lt;a href=&quot;http://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/&quot;&gt;tutorial here&lt;/a&gt;  &lt;/p&gt;
 
-&lt;h1&gt;to&lt;/h1&gt;
-
-&lt;h1&gt;add&lt;/h1&gt;
-
-&lt;h1&gt;this&lt;/h1&gt;
-
-&lt;h1&gt;still.&lt;/h1&gt;
+&lt;p&gt;c. Once you&amp;#39;ve opened the &lt;code&gt;.gitignore&lt;/code&gt; file, we&amp;#39;re going to add two new portions. In the first line of the document let&amp;#39;s take care of the &lt;code&gt;_site&lt;/code&gt; directory. Type:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;```
+_site/
+```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That takes care of the first directory. Next we&amp;#39;re going to ignore any OS generated files that we wont need (when you un-hid files you shound also have seen a .DS_Store file show up, this is one of those OS generated files that we don&amp;#39;t need). To hide this, and others, below the _site entry we added, copy and paste:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;```
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db 
+```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And that&amp;#39;s it. You can save and close out of this file. We&amp;#39;re ready to get everything we didn&amp;#39;t just exclude hosted on GitHub.&lt;/p&gt;
 
 &lt;h4&gt;6. Initialize your New Repository&lt;/h4&gt;
 
@@ -265,11 +285,36 @@ g. Click &lt;code&gt;Create repository&lt;/code&gt;&lt;/p&gt;
 
 &lt;h4&gt;7. Check Out your New Site&lt;/h4&gt;
 
-&lt;p&gt;Open a browser and navigate to your newly created site at &lt;code&gt;username.github.io&lt;/code&gt;. Cool right?&lt;/p&gt;
+&lt;p&gt;Open a browser and navigate to your newly created site at &lt;code&gt;username.github.io&lt;/code&gt;. Cool, right?&lt;/p&gt;
 
 &lt;hr&gt;
 
-&lt;h2&gt;&lt;a name=&quot;customdomain&quot;&gt;&lt;/a&gt;Custom Domain&lt;/h2&gt;
+&lt;h2&gt;&lt;a name=&quot;customdomain&quot;&gt;&lt;/a&gt;OPTIONAL: Custom Domain&lt;/h2&gt;
+
+&lt;p&gt;Alright, so we&amp;#39;ve got a page that&amp;#39;s live online, but wouldn&amp;#39;t it be nice to link to this to a domain we already own. It&amp;#39;s actually a pretty easy process. Let&amp;#39;s do that.&lt;/p&gt;
+
+&lt;h4&gt;1. Edit CNAME File&lt;/h4&gt;
+
+&lt;p&gt;The first think we&amp;#39;ll want to do is edit one of the files that came with our site template. Open up your project directory in Finder and open up the &lt;code&gt;CNAME&lt;/code&gt; file in your text editor. You&amp;#39;ll see that this file already contains a domain name, you&amp;#39;ll want to delete out what&amp;#39;s in there and add your own domain name here. &lt;/p&gt;
+
+&lt;h4&gt;2. Edit _config.yml File&lt;/h4&gt;
+
+&lt;p&gt;Remember that the one field we didn&amp;#39;t update in the config file earlier is the URL line, let&amp;#39;s go back in to that file and update that with this new URL.&lt;/p&gt;
+
+&lt;h4&gt;3. Set Alias with your Domain Registrar&lt;/h4&gt;
+
+&lt;p&gt;This part will vary based on your domain registrar, so I&amp;#39;m just going to post the official &lt;a href=&quot;https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages&quot;&gt;GitHub instructions on setting up a custom domain&lt;/a&gt;. &lt;/p&gt;
+
+&lt;h4&gt;4. Commit changes to GitHub&lt;/h4&gt;
+
+&lt;p&gt;Make sure these two files you edited are saved, then we&amp;#39;re going to commit these changes to our GitHub repository. Run the following in order (this is almost the same process we ran earler to do the initial commit minus cloning the repository and initializing the directory):&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git add -A
+git commit -m &amp;quot;set up custom domain&amp;quot;
+git push
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;5. Check Out your New Site&lt;/h4&gt;
+
+&lt;p&gt;Open a browser window and navigate to the domain that you just setup and you should see your new site. If you don&amp;#39;t see it right away give it a few mins, GitHub warns that this may take 10 mins to take affect. Everything working? Good. &lt;/p&gt;
 
 &lt;hr&gt;
 

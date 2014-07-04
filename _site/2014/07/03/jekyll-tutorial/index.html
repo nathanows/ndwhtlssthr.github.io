@@ -215,15 +215,35 @@ g. Click <code>Create repository</code></p>
 
 <p>One of the directories that Jekyll generates when serving up the site locally is a _site directory. This file contains all of the necessary static files to view the site. For the purposes of our GitHub Page we don&#39;t actually want to upload this, so we&#39;re going to create a .gitignore file in our directory which will tell Git to ignore the files listed in it.</p>
 
-<h1>Need</h1>
+<p>a. Create our <code>.gitignore</code> file by navigating to the project directory in Terminal, and running:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">```
+touch .gitignore
+```
+</code></pre></div>
+<p>b. Because this file starts with a &#39;.&#39;, the OS will hide this file by default. There are a few ways to show this file, so choose one of the following and open the newly created file in your text editor:
+    - I use a Finder replacement called <a href="http://cocoatech.com/pathfinder/">Path Finder</a> in which I can just go to the view menu and select &#39;Show Invisible Files&#39;.
+    - Path Finder costs money, so a free solution is to download a small freeware app called <a href="http://nektony.com/products/funter">Funter</a> that adds an icon to your menubar allowing you to quickly show and hide invisible files.
+    - Finally, if you want something free that you don&#39;t have to install, you can follow the <a href="http://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/">tutorial here</a>  </p>
 
-<h1>to</h1>
-
-<h1>add</h1>
-
-<h1>this</h1>
-
-<h1>still.</h1>
+<p>c. Once you&#39;ve opened the <code>.gitignore</code> file, we&#39;re going to add two new portions. In the first line of the document let&#39;s take care of the <code>_site</code> directory. Type:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">```
+_site/
+```
+</code></pre></div>
+<p>That takes care of the first directory. Next we&#39;re going to ignore any OS generated files that we wont need (when you un-hid files you shound also have seen a .DS_Store file show up, this is one of those OS generated files that we don&#39;t need). To hide this, and others, below the _site entry we added, copy and paste:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">```
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db 
+```
+</code></pre></div>
+<p>And that&#39;s it. You can save and close out of this file. We&#39;re ready to get everything we didn&#39;t just exclude hosted on GitHub.</p>
 
 <h4>6. Initialize your New Repository</h4>
 
@@ -246,11 +266,36 @@ g. Click <code>Create repository</code></p>
 
 <h4>7. Check Out your New Site</h4>
 
-<p>Open a browser and navigate to your newly created site at <code>username.github.io</code>. Cool right?</p>
+<p>Open a browser and navigate to your newly created site at <code>username.github.io</code>. Cool, right?</p>
 
 <hr>
 
-<h2><a name="customdomain"></a>Custom Domain</h2>
+<h2><a name="customdomain"></a>OPTIONAL: Custom Domain</h2>
+
+<p>Alright, so we&#39;ve got a page that&#39;s live online, but wouldn&#39;t it be nice to link to this to a domain we already own. It&#39;s actually a pretty easy process. Let&#39;s do that.</p>
+
+<h4>1. Edit CNAME File</h4>
+
+<p>The first think we&#39;ll want to do is edit one of the files that came with our site template. Open up your project directory in Finder and open up the <code>CNAME</code> file in your text editor. You&#39;ll see that this file already contains a domain name, you&#39;ll want to delete out what&#39;s in there and add your own domain name here. </p>
+
+<h4>2. Edit _config.yml File</h4>
+
+<p>Remember that the one field we didn&#39;t update in the config file earlier is the URL line, let&#39;s go back in to that file and update that with this new URL.</p>
+
+<h4>3. Set Alias with your Domain Registrar</h4>
+
+<p>This part will vary based on your domain registrar, so I&#39;m just going to post the official <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages">GitHub instructions on setting up a custom domain</a>. </p>
+
+<h4>4. Commit changes to GitHub</h4>
+
+<p>Make sure these two files you edited are saved, then we&#39;re going to commit these changes to our GitHub repository. Run the following in order (this is almost the same process we ran earler to do the initial commit minus cloning the repository and initializing the directory):</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git add -A
+git commit -m &quot;set up custom domain&quot;
+git push
+</code></pre></div>
+<h4>5. Check Out your New Site</h4>
+
+<p>Open a browser window and navigate to the domain that you just setup and you should see your new site. If you don&#39;t see it right away give it a few mins, GitHub warns that this may take 10 mins to take affect. Everything working? Good. </p>
 
 <hr>
 

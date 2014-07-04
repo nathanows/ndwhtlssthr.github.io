@@ -235,13 +235,36 @@ We're getting close. You've now setup the landing zone for your future site.
 ####5. .gitignore
 One of the directories that Jekyll generates when serving up the site locally is a _site directory. This file contains all of the necessary static files to view the site. For the purposes of our GitHub Page we don't actually want to upload this, so we're going to create a .gitignore file in our directory which will tell Git to ignore the files listed in it.
 
-	
-#Need
-#to
-#add
-#this
-#still.
+a. Create our `.gitignore` file by navigating to the project directory in Terminal, and running:
 
+	```
+	touch .gitignore
+	```
+
+b. Because this file starts with a '.', the OS will hide this file by default. There are a few ways to show this file, so choose one of the following and open the newly created file in your text editor:
+	- I use a Finder replacement called [Path Finder](http://cocoatech.com/pathfinder/) in which I can just go to the view menu and select 'Show Invisible Files'.
+	- Path Finder costs money, so a free solution is to download a small freeware app called [Funter](http://nektony.com/products/funter) that adds an icon to your menubar allowing you to quickly show and hide invisible files.
+	- Finally, if you want something free that you don't have to install, you can follow the [tutorial here](http://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/)  
+	
+c. Once you've opened the `.gitignore` file, we're going to add two new portions. In the first line of the document let's take care of the `_site` directory. Type:
+
+	```
+	_site/
+	```
+That takes care of the first directory. Next we're going to ignore any OS generated files that we wont need (when you un-hid files you shound also have seen a .DS_Store file show up, this is one of those OS generated files that we don't need). To hide this, and others, below the _site entry we added, copy and paste:
+
+	```
+	# OS generated files #
+	######################
+	.DS_Store
+	.DS_Store?
+	._*
+	.Spotlight-V100
+	.Trashes
+	ehthumbs.db
+	Thumbs.db 
+	```
+And that's it. You can save and close out of this file. We're ready to get everything we didn't just exclude hosted on GitHub.
 
 
 
@@ -274,13 +297,33 @@ git push
 With that your files have been uploaded to GitHub and we've got a site up and running. 
 
 ####7. Check Out your New Site
-Open a browser and navigate to your newly created site at `username.github.io`. Cool right?
+Open a browser and navigate to your newly created site at `username.github.io`. Cool, right?
 
 
 ---
 
-##<a name="customdomain"></a>Custom Domain
+##<a name="customdomain"></a>OPTIONAL: Custom Domain
+Alright, so we've got a page that's live online, but wouldn't it be nice to link to this to a domain we already own. It's actually a pretty easy process. Let's do that.
 
+####1. Edit CNAME File
+The first think we'll want to do is edit one of the files that came with our site template. Open up your project directory in Finder and open up the `CNAME` file in your text editor. You'll see that this file already contains a domain name, you'll want to delete out what's in there and add your own domain name here. 
+
+####2. Edit _config.yml File
+Remember that the one field we didn't update in the config file earlier is the URL line, let's go back in to that file and update that with this new URL.
+
+####3. Set Alias with your Domain Registrar
+This part will vary based on your domain registrar, so I'm just going to post the official [GitHub instructions on setting up a custom domain](https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages). 
+
+####4. Commit changes to GitHub
+Make sure these two files you edited are saved, then we're going to commit these changes to our GitHub repository. Run the following in order (this is almost the same process we ran earler to do the initial commit minus cloning the repository and initializing the directory):
+
+```
+git add -A
+git commit -m "set up custom domain"
+git push
+```
+####5. Check Out your New Site
+Open a browser window and navigate to the domain that you just setup and you should see your new site. If you don't see it right away give it a few mins, GitHub warns that this may take 10 mins to take affect. Everything working? Good. 
 
 ---
 ##<a name="nextsteps"></a>Next Steps
