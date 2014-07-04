@@ -4,13 +4,147 @@
  <title>Nathan Owsiany</title>
  <link href="http://nathan.owsiany.me/atom.xml" rel="self"/>
  <link href="http://nathan.owsiany.me/"/>
- <updated>2014-07-02T22:03:31-07:00</updated>
+ <updated>2014-07-03T17:34:05-07:00</updated>
  <id>http://nathan.owsiany.me</id>
  <author>
    <name>Nathan Owsiany</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Jekyll Tutorial</title>
+   <link href="http://nathan.owsiany.me/2014/07/03/jekyll-tutorial/"/>
+   <updated>2014-07-03T00:00:00-07:00</updated>
+   <id>http://nathan.owsiany.me/2014/07/03/jekyll-tutorial</id>
+   <content type="html">&lt;p&gt;As I mentioned in my last post, this blog is based on the Jekyll framework and hosted on GitHub Pages. As I was going through the process of choosing a platform I came across Jekyll and was intrigued by the concept of hosting directly on GitHub, which, as someone trying to immerse myself in the development ecosystem, is intimidating, but seemed like a great opportunity to force myself to get aquainted with GitHub. Still, functionality is obviously number one, and beyond being a platform I&amp;#39;m purely interested in, Jekyll is known to be fast and flexible. Oh yeah, and it&amp;#39;s free! &lt;/p&gt;
+
+&lt;p&gt;This tutorial covers step by step how to setup and publish a very simple Jekyll blog and publish it to GitHub Pages:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#audience&quot;&gt;&lt;strong&gt;Audience&lt;/strong&gt;&lt;/a&gt;: Who this tutorial is written for&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#goal&quot;&gt;&lt;strong&gt;Goal&lt;/strong&gt;&lt;/a&gt;: What will be accomplished in this tutorial&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#setup&quot;&gt;&lt;strong&gt;Setup&lt;/strong&gt;&lt;/a&gt;: Setting up the necessary development environment to install and run Jekyll&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#jekyllpoole&quot;&gt;&lt;strong&gt;Jekyll/Poole&lt;/strong&gt;&lt;/a&gt;: Getting up and running using Jekyll and getting started with the Poole theme&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#githubpages&quot;&gt;&lt;strong&gt;GitHub Pages&lt;/strong&gt;&lt;/a&gt;: Loading your page to GitHub Pages&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#customdomain&quot;&gt;&lt;strong&gt;Custom Domain&lt;/strong&gt;&lt;/a&gt;: Linking your newly created site to your personal domain&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;&lt;a name=&quot;audience&quot;&gt;&lt;/a&gt;Audience&lt;/h2&gt;
+
+&lt;p&gt;I&amp;#39;ll preface this post by saying that I&amp;#39;m a total amateur, and therefore not really the standard Jekyll user. This means that there may be elements I won&amp;#39;t (read: can&amp;#39;t) fully explain. If you&amp;#39;re starting at a higher level, everything should still work, but may not have the meaty context you desire (mmm... meaty context...). &lt;/p&gt;
+
+&lt;p&gt;That said, I&amp;#39;m writing this because this is what I wished I could find as I was going through this process. It also starts from scratch, literally. I recently updated to new computer so I was starting from nothing. This isn&amp;#39;t likely to be the case for most of you, meaning you can skip some of the initial setup, but if you&amp;#39;re brand new this is the tutorial for you. &lt;/p&gt;
+
+&lt;p&gt;The other plus if you&amp;#39;re a beginner is that I&amp;#39;m going to explain things in a way that I, another beginner, understand them. One of the problems that I ran in to going through this process was the really quick dropoff in a lot of the instructions I found along the way. They start you off wading through the shallow end of the pool and about half way across you quickly realize it&amp;#39;s not a steady decline as you fall off the 10 foot ledge directly in to the deep end. No lifeguards, nothing, and you&amp;#39;re just left floating there in your waterwings... not here. (yeah, I know, this also means it&amp;#39;s possible I&amp;#39;m giving you bad information... the process worked for me, take it or leave it)&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;&lt;a name=&quot;goal&quot;&gt;&lt;/a&gt;Goal&lt;/h2&gt;
+
+&lt;p&gt;This tutorial will walk you step by step through setting up the development environment to install &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;, creating a Jekyll blog using the &lt;a href=&quot;http://getpoole.com/&quot;&gt;Poole&lt;/a&gt;, hosting your site on &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;, and adding a domain alias so that you can link your GitHub Pages site to your own domain. &lt;/p&gt;
+
+&lt;p&gt;This tutorial will not cover customizing the site or creating/managing posts, but if you want to go further, stay tuned, that&amp;#39;s coming up next. You&amp;#39;ll learn alongside me. &lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;&lt;a name=&quot;setup&quot;&gt;&lt;/a&gt;Setup&lt;/h2&gt;
+
+&lt;p&gt;Before we can start using Jekyll we need to install the correct components of our development environment. Remember, I&amp;#39;m starting from scratch, so you may be able to skip most of this if you&amp;#39;ve done any sort of Ruby development in the past. I&amp;#39;ll also note that it&amp;#39;s possible not every step in this is necessary, I ran in to errors as I was trying to get Jekyll installed and these are the components that I needed to install before it worked. You can try installing Jekyll right away by typing the following command at the terminal prompt:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo gem install jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;NOTE: This entire setup process was performed on a Mac running OSX 10.9, though everything should still work correctly on earlier versions of Macs. If you&amp;#39;re running linux the same process I outline below should work for you. If you&amp;#39;re on Windows, you&amp;#39;ve got an uphill battle as Jekyll doesn&amp;#39;t officially support Windows, but tutorials exist, like &lt;a href=&quot;https://github.com/juthilo/run-jekyll-on-windows&quot;&gt;this one&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you got errors when you tried the install, follow along.&lt;/p&gt;
+
+&lt;h4&gt;1. Install Xcode&lt;/h4&gt;
+
+&lt;p&gt;If you don&amp;#39;t have it installed already, go the App Store and &lt;strong&gt;install Xcode&lt;/strong&gt;. (Xcode is an integrate development environment that contains a suite of software development tools developed by Apple for developing software for OS X and iOS)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;After you&amp;#39;ve downloaded and installed Xcode, you need to accept the Xcode license terms. Go to Spotlight and search for and open Terminal.&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;At the terminal prompt run the following:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo xcodebuild -license
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Press &amp;#39;q&amp;#39; then type &amp;#39;agree&amp;#39; to accept the license agreement &lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;2. Install Homebrew&lt;/h4&gt;
+
+&lt;p&gt;Sold as &amp;#39;the missing package manager for OS X&amp;#39;, &lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt; makes it easy to install frequently used packages that Apple doesn&amp;#39;t include in OS X. &lt;/p&gt;
+
+&lt;p&gt;To install Homebrew, paste the following at a Terminal prompt:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;3. Install GCC&lt;/h4&gt;
+
+&lt;p&gt;This is a piece that I ran across on StackOverflow while troubleshooting an error, I&amp;#39;m not 100% if this was necessary for the Jekyll install, but is one of the things that I installed along the way. GCC stands for the GNU Compiler Collection and is a part of the standard GNU toolchain. Here&amp;#39;s the install process I followed for the GCC install:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;brew update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;brew tap homebrew/dupes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;brew install apple-gcc42
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Make sure you don&amp;#39;t receive any error when running:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;which gcc-4.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;4. Install MacPorts&lt;/h4&gt;
+
+&lt;p&gt;Go &lt;a href=&quot;https://www.macports.org/install.php&quot;&gt;here&lt;/a&gt; and click on your version of OS X (we&amp;#39;ve already installed Xcode and accepted the license agreement).&lt;/p&gt;
+
+&lt;h4&gt;5. Install Ruby Version Manager [RVM]&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://rvm.io/&quot;&gt;Ruby Version Manager [RVM]&lt;/a&gt; allows you to easily install, manage, and work with multiple Ruby environments. While we&amp;#39;ll only be using the latest stable version of Ruby right now, the pay come in handy if you continue usine Ruby for different projects going forward. So first install RVM by pasting the following in to Terminal:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;\curl -sSL https://get.rvm.io | bash -s stable
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once this has completed restart your Terminal.&lt;/p&gt;
+
+&lt;h4&gt;5. Install Ruby 2.1.2&lt;/h4&gt;
+
+&lt;p&gt;If you&amp;#39;re running on a UNIX system (Mac/Linux), and I&amp;#39;ll assume you are since it would make no sense for you to be at this point in the tutorial if you were running Windows, Ruby comes pre-installed with your OS. You can see this by typing &lt;code&gt;ruby -v&lt;/code&gt; at a Terminal prompt. If you&amp;#39;re not already using the 2.1.2, let&amp;#39;s install this latest stable version to RVM. At your Terminal prompt run:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;rvm requirements
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;then:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;rvm install 2.1.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Finally, let&amp;#39;s set this version of Ruby to be the default ruby when you open a new terminal shell, we&amp;#39;ll use the &lt;code&gt;--default&lt;/code&gt; tag:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;rvm --default use 2.1.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To verify that this worked you can check the current Ruby version again by typing:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ruby -v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And that&amp;#39;s it, we&amp;#39;re all setup! We should be ready to install Jekyll and get started on actually getting our site ready to go. Continue on to the next section where we&amp;#39;ll walk through installing Jekyll, getting our page template downloaded and setup, and at the end see our page running in a browser (locally).&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;&lt;a name=&quot;jekyllpoole&quot;&gt;&lt;/a&gt;Jekyll / Poole&lt;/h2&gt;
+
+&lt;p&gt;Assuming you&amp;#39;ve completed the setup above, you&amp;#39;re ready to get started with Jekyll itself, and it should be really easy!&lt;/p&gt;
+
+&lt;h4&gt;1.Install Jekyll&lt;/h4&gt;
+
+&lt;p&gt;To install Jekyll we&amp;#39;re going to use RubyGems which is software (it comes packaged with all Ruby versions &amp;gt; 1.9) that allows you to easily download, install, and use ruby software packages, one of which is Jekyll. To install open a terminal window and run:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo gem install jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The install will take a few mins, and when it&amp;#39;s done you should see something similar to the following:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Done installing documentation for blankslate, celluloid, classifier, coffee-script, coffee-script-source, colorator, execjs, fast-stemmer, ffi, hitimes, jekyll, jekyll-coffeescript, jekyll-gist, jekyll-paginate, jekyll-sass-converter, jekyll-watch, kramdown, liquid, listen, mercenary, parslet, posix-spawn, pygments.rb, rb-fsevent, rb-inotify, redcarpet, safe_yaml, sass, timers, toml, yajl-ruby after 24 seconds
+31 gems installed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You&amp;#39;ll see that in additional to the &lt;code&gt;jekyll&lt;/code&gt; gem itself, it also installed, in my case, 30 additional dependent gems that Jekyll uses. &lt;/p&gt;
+
+&lt;p&gt;We&amp;#39;re going to hold off on testing out Jekyll on anything right now and move on to getting our template set up so we&amp;#39;ve got something to display when we fire it up. &lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;&lt;a name=&quot;githubpages&quot;&gt;&lt;/a&gt;GitHub Pages&lt;/h2&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;&lt;a name=&quot;customdomain&quot;&gt;&lt;/a&gt;Custom Domain&lt;/h2&gt;
+
+&lt;hr&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Introducing Hyde</title>
