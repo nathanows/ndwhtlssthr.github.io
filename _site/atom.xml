@@ -4,7 +4,7 @@
  <title>Nathan Owsiany</title>
  <link href="http://nathan.owsiany.me/atom.xml" rel="self"/>
  <link href="http://nathan.owsiany.me/"/>
- <updated>2014-07-04T00:14:56-07:00</updated>
+ <updated>2014-07-04T00:17:14-07:00</updated>
  <id>http://nathan.owsiany.me</id>
  <author>
    <name>Nathan Owsiany</name>
@@ -203,14 +203,10 @@ github:
 
 &lt;p&gt;a. &lt;a href=&quot;http://git-scm.com/downloads&quot;&gt;Download and install the latest version of Git&lt;/a&gt;.
 b. Open Terminal and tell Git your &lt;em&gt;name&lt;/em&gt; so that your commits will be properly labeled by typing:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;```
-git config --global user.name &amp;quot;YOUR NAME&amp;quot;
-```
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git config --global user.name &amp;quot;YOUR NAME&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;c. Next tell Git the &lt;em&gt;email address&lt;/em&gt; that should be associated with your Git commits. This email needs to be the same one that you used to setup your GitHub account.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;```
-git config --global user.email &amp;quot;YOUR EMAIL ADDRESS&amp;quot;
-```
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git config --global user.email &amp;quot;YOUR EMAIL ADDRESS&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h4&gt;3. Authenticating to GitHub from Git&lt;/h4&gt;
 

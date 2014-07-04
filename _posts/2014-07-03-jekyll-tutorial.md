@@ -202,14 +202,15 @@ The first thing you'll need to do, if you don't have one already, is to create a
 a. [Download and install the latest version of Git](http://git-scm.com/downloads).
 b. Open Terminal and tell Git your *name* so that your commits will be properly labeled by typing:
 
-	```
-	git config --global user.name "YOUR NAME"
-	```
+
+```
+git config --global user.name "YOUR NAME"
+```
 c. Next tell Git the *email address* that should be associated with your Git commits. This email needs to be the same one that you used to setup your GitHub account.
-	
-	```
-	git config --global user.email "YOUR EMAIL ADDRESS"
-	```
+
+```
+git config --global user.email "YOUR EMAIL ADDRESS"
+```
 	
 ####3. Authenticating to GitHub from Git
 When you commit to or clone a GitHub repository from Git, you'll need to authenticate to GitHub using either HTTPS or SSH. GitHub recommends using SSH so that's what will be used for this tutorial. 
