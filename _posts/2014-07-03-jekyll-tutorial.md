@@ -1,4 +1,4 @@
-As I mentioned in my last post, this blog is based on the Jekyll framework and hosted on GitHub Pages. As I was going through the process of choosing a platform I came across Jekyll and was intrigued by the concept of hosting directly on GitHub, which, as someone trying to immerse myself in the development ecosystem, is intimidating, but seemed like a great opportunity to force myself to get aquainted with GitHub. Still, functionality is obviously number one, and beyond being a platform I'm purely interested in, Jekyll is known to be fast and flexible. Oh yeah, and it's free! 
+This blog is based on the Jekyll framework and hosted on GitHub Pages. As I was going through the process of choosing a platform I came across Jekyll and was intrigued by the concept of hosting directly on GitHub, which, as someone trying to immerse myself in the development ecosystem, is intimidating, but seemed like a great opportunity to force myself to get aquainted with GitHub. Still, functionality is obviously number one, and beyond being a platform I'm purely interested in, Jekyll is known to be fast and flexible. Oh yeah, and it's free! 
 
 This tutorial covers step by step how to setup and publish a very simple Jekyll blog and publish it to GitHub Pages:
 
@@ -8,13 +8,13 @@ This tutorial covers step by step how to setup and publish a very simple Jekyll 
 - [**Jekyll/Hyde**](#jekyllhyde): Getting up and running using Jekyll and getting started with the Hyde theme
 - [**GitHub Pages**](#githubpages): Loading your page to GitHub Pages
 - [**Custom Domain**](#customdomain): Linking your newly created site to your personal domain
-- [**Next Steps**](#nextsteps): You've got a generic text online, now what?
+- [**Next Steps**](#nextsteps): You've got a generic site online, now what?
 
 ---
 
 
 ##<a name="audience"></a>Audience
-I'll preface this post by saying that I'm a total amateur, and therefore not really the standard Jekyll user. This means that there may be elements I won't (read: can't) fully explain. If you're starting at a higher level, everything should still work, but may not have the meaty context you desire (mmm... meaty context...). 
+I'll preface this post by saying that I'm no expert on most any of this, and therefore not really the standard Jekyll user. This means that there may be elements I won't (read: can't) fully explain. If you're starting at a higher level, everything should still work, but may not have the meaty context you desire (mmm... meaty context...). 
 
 That said, I'm writing this because this is what I wished I could find as I was going through this process. It also starts from scratch, literally. I recently updated to new computer so I was starting from nothing. This isn't likely to be the case for most of you, meaning you can skip some of the initial setup, but if you're brand new this is the tutorial for you. 
 
@@ -327,6 +327,22 @@ Open a browser window and navigate to the domain that you just setup and you sho
 
 ---
 ##<a name="nextsteps"></a>Next Steps
+If you made it this far, you now have a fully functional website live online, possibly using your own custom domain name. From here you need to build out the site itself. And remember, I'm at the same place you are, so here's what I'm thinking of next steps:
+
+- Start posting! This is really the first post I've written. I'm deciding to start focusing on content now, and build along the way. I'm a chronic tweaker, so I know that if I start re-designing and building things out first I'll never get around to actually writing. 
+- Delete out the stock filler posts.
+- Modify the About page to reflect you.
+- Create a Contact page.
+- Create a Portfolio page.
+- Update the other sidebar links (Download, GitHub Link).
+- Add post categories or tags.
+- Modify/rebuild website template (it's no fun to just use a stock template).
+- Tweak posts template.
+
+My goal is to continue to post tutorials similar to this as I continue to build out this site, but they'll probably be a little spaced out as I'm also currently working through the course materials that Epicodus provides free online at www.learnhowtoprogram.com and need to balance the two. If you're a beginner, from what I've see so far I highly recommend it. I'll also be posting about my experiences in that process so if that's interesting to you, stay tuned.
+
+I know the odds are good that no one ends up reading this, but if anyone found there way here, hope this was helpful!
+
 
 
 ---
