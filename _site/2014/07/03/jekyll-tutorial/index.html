@@ -6,9 +6,10 @@
 <li><a href="#audience"><strong>Audience</strong></a>: Who this tutorial is written for</li>
 <li><a href="#goal"><strong>Goal</strong></a>: What will be accomplished in this tutorial</li>
 <li><a href="#setup"><strong>Setup</strong></a>: Setting up the necessary development environment to install and run Jekyll</li>
-<li><a href="#jekyllpoole"><strong>Jekyll/Poole</strong></a>: Getting up and running using Jekyll and getting started with the Poole theme</li>
+<li><a href="#jekyllhyde"><strong>Jekyll/Hyde</strong></a>: Getting up and running using Jekyll and getting started with the Hyde theme</li>
 <li><a href="#githubpages"><strong>GitHub Pages</strong></a>: Loading your page to GitHub Pages</li>
 <li><a href="#customdomain"><strong>Custom Domain</strong></a>: Linking your newly created site to your personal domain</li>
+<li><a href="#nextsteps"><strong>Next Steps</strong></a>: You&#39;ve got a generic text online, now what?</li>
 </ul>
 
 <hr>
@@ -25,7 +26,7 @@
 
 <h2><a name="goal"></a>Goal</h2>
 
-<p>This tutorial will walk you step by step through setting up the development environment to install <a href="http://jekyllrb.com/">Jekyll</a>, creating a Jekyll blog using the <a href="http://getpoole.com/">Poole</a>, hosting your site on <a href="https://pages.github.com/">GitHub Pages</a>, and adding a domain alias so that you can link your GitHub Pages site to your own domain. </p>
+<p>This tutorial will walk you step by step through setting up the development environment to install <a href="http://jekyllrb.com/">Jekyll</a>, creating a Jekyll blog using the <a href="http://hyde.getpoole.com/">Hyde</a>, hosting your site on <a href="https://pages.github.com/">GitHub Pages</a>, and adding a domain alias so that you can link your GitHub Pages site to your own domain. </p>
 
 <p>This tutorial will not cover customizing the site or creating/managing posts, but if you want to go further, stay tuned, that&#39;s coming up next. You&#39;ll learn alongside me. </p>
 
@@ -98,7 +99,7 @@
 
 <hr>
 
-<h2><a name="jekyllpoole"></a>Jekyll / Poole</h2>
+<h2><a name="jekyllpoole"></a>Jekyll / Hyde</h2>
 
 <p>Assuming you&#39;ve completed the setup above, you&#39;re ready to get started with Jekyll itself, and it should be really easy!</p>
 
@@ -115,12 +116,148 @@
 
 <p>We&#39;re going to hold off on testing out Jekyll on anything right now and move on to getting our template set up so we&#39;ve got something to display when we fire it up. </p>
 
+<h4>2. Download Poole &gt; Hyde Theme</h4>
+
+<p>For this site I chose to use a Jekyll theme called <a href="http://hyde.getpoole.com/">Hyde</a> which is based on an underlying theme, <a href="http://getpoole.com/">Poole</a>. While a theme isn&#39;t completely necessary and we could create our own templates, we&#39;re going to use this as a foundation to build off of (a little instant gratification...). </p>
+
+<p>Go to the <a href="http://hyde.getpoole.com">Hyde Website</a> and on the left sidebar click on Download. Unzip this file and move it to a new directory where you want to house this site (the live site will live on GitHub, but this is where you&#39;ll edit it from). For now I recommend moving it in to your Documents folder as this is where the rest of the tutorial will work from. Rename this directory as you&#39;d like (for the purposes of this tutorial I&#39;ll call the directory <code>hyde-blog</code>). </p>
+
+<h4>3. It lives!</h4>
+
+<p>Alright, we&#39;ve got a site. Let&#39;s fire up Jekyll and take a look at in the browser. Right now this will just be an exact replica of what&#39;s on the Hyde website, but it&#39;s a start. Open up a Terminal window and navigate to the project directory. </p>
+
+<p>I&#39;m assuming most people will be to navigate to the project directory, but just to be thorough, type <code>pwd</code> to see your current location. Type <code>ls</code> to list the files in the current directory, to navigate to the Documents directory type <code>cd Documents</code>, then if you&#39;re using the naming I used above type <code>cd hyde-blog</code> (or whatever you named your project directory).</p>
+
+<p>Once you&#39;re in the project directory we&#39;ll start up Jekyll&#39;s built in development server so we can view the site locally. Start the server by running:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">jekyll serve
+</code></pre></div>
+<p>With this we&#39;ve got a live version of the site running locally. </p>
+
+<h4>4. Check out the site</h4>
+
+<p>To access the site, open a new browser window and navigate to <code>localhost:4000</code>. And there&#39;s the site! After you&#39;ve looked around, let&#39;s stop the server for now. go back to the Terminal window where you started the server and press <code>CTRL+C</code>.</p>
+
+<h4>5. Minor edits</h4>
+
+<p>That&#39;s cool and all, but let&#39;s make a couple of quick edits just so it&#39;s clear that this is our site and not just the stock template. In Finder, navigate to your project folder and open <code>_config.yml</code> in your favorite text editor (I&#39;m using <a href="http://www.sublimetext.com/">Sublime Text</a>).   It looks like this:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># Dependencies
+markdown:         redcarpet
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Hyde
+tagline:          &#39;A Jekyll theme&#39;
+description:      &#39;A brazen two-column &lt;a href=&quot;http://jekyllrb.com&quot; target=&quot;_blank&quot;&gt;Jekyll&lt;/a&gt; theme that pairs a prominent sidebar with uncomplicated content. Made by &lt;a href=&quot;https://twitter.com/mdo&quot; target=&quot;_blank&quot;&gt;@mdo&lt;/a&gt;.&#39;
+url:              http://hyde.getpoole.com
+
+author:
+  name:           &#39;Mark Otto&#39;
+  url:            https://twitter.com/mdo
+
+paginate:         5
+
+# Custom vars
+version:          2.0.0
+
+github:
+  repo:           https://github.com/poole/hyde
+</code></pre></div>
+<p>For the sake of this test run,  let&#39;s update the <code>#setup</code> section (update all sections except for url). After you&#39;ve updated save the file and close out. Go back to your Terminal window and restart the dev server:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">jekyll serve
+</code></pre></div>
+<p>In your browser window refresh the <code>localhost:4000</code> page. It&#39;s nothing big... but it&#39;s something! But what good is a local-only website? Next we&#39;ll get this site up and running on GitHub pages.</p>
+
 <hr>
 
 <h2><a name="githubpages"></a>GitHub Pages</h2>
 
+<p>Now we&#39;ve got a local site (OK, we&#39;ve downloaded a template...), so let&#39;s get this online so we can share this out to the world. I mean, what if the main Hyde site goes down! To do this we&#39;re going to use GitHub Pages. GitHub Pages are public webpages freely hosted and easily published through the GitHub site. </p>
+
+<h4>1. Create GitHub Account</h4>
+
+<p>The first thing you&#39;ll need to do, if you don&#39;t have one already, is to create a GitHub account by going to the <a href="https://github.com/">GitHub Website</a>. While the last part of this tutorial will walk through the process of assigning a custom domain name to the page, but if you don&#39;t have or don&#39;t plan on using a personal domain name pay attention to the GitHub username that you select because your website URL will be <code>username.github.io</code>.</p>
+
+<h4>2. Set up Git</h4>
+
+<p>a. <a href="http://git-scm.com/downloads">Download and install the latest version of Git</a>.
+b. Open Terminal and tell Git your <em>name</em> so that your commits will be properly labeled by typing:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">```
+git config --global user.name &quot;YOUR NAME&quot;
+```
+</code></pre></div>
+<p>c. Next tell Git the <em>email address</em> that should be associated with your Git commits. This email needs to be the same one that you used to setup your GitHub account.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">```
+git config --global user.email &quot;YOUR EMAIL ADDRESS&quot;
+```
+</code></pre></div>
+<h4>3. Authenticating to GitHub from Git</h4>
+
+<p>When you commit to or clone a GitHub repository from Git, you&#39;ll need to authenticate to GitHub using either HTTPS or SSH. GitHub recommends using SSH so that&#39;s what will be used for this tutorial. </p>
+
+<p>Follow the process outlined on the GitHub website to <a href="https://help.github.com/articles/generating-ssh-keys">generate the necessary SSH keys</a>. </p>
+
+<p>SSH keys are a way to identify trusted computers, without involving passwords. The steps on the GitHub site will walk you through generating an SSH key and then adding the public key to your GitHub account. </p>
+
+<h4>4. Create a New GitHub Repository</h4>
+
+<p>Now that your account is all set up, we need to create the Repository (this is the GitHub project directory) that we will load this site to. </p>
+
+<p>a. Log in to your GitHub account
+b. On the home page, in the bottom right portion of the screen in the &#39;Your Repositories&#39; section click on <code>+ New repository</code>
+c. Enter your <code>Repository name</code>. IMPORTANT: This needs to be <code>username.github.io</code> (replacing &#39;username&#39; with your GitHub account user name). The site will not work if this repository is not named correctly. 
+d. Enter a brief site <code>Description</code>
+e. Leave this as a <code>Public</code> repository
+f. Don&#39;t select to initialize a README file
+g. Click <code>Create repository</code></p>
+
+<p>We&#39;re getting close. You&#39;ve now setup the landing zone for your future site.</p>
+
+<h4>5. .gitignore</h4>
+
+<p>One of the directories that Jekyll generates when serving up the site locally is a _site directory. This file contains all of the necessary static files to view the site. For the purposes of our GitHub Page we don&#39;t actually want to upload this, so we&#39;re going to create a .gitignore file in our directory which will tell Git to ignore the files listed in it.</p>
+
+<h1>Need</h1>
+
+<h1>to</h1>
+
+<h1>add</h1>
+
+<h1>this</h1>
+
+<h1>still.</h1>
+
+<h4>6. Initialize your New Repository</h4>
+
+<p>It&#39;s time to load our files to this new repository. Open up a Terminal window and navigate to your project folder. Once you&#39;re in this directory we first need to clone this blank repository we just created (we&#39;re basically referencing this GitHub location on our local computer). To do this run:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git clone https://github.com/username/username.github.io
+</code></pre></div>
+<p>Next we&#39;re going to tell Git that the directory we&#39;re in should be tracked by Git. Do this with:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git init
+</code></pre></div>
+<p>Now that Git knows what this location is, we need to add all of our files in to the Git management system by using: </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git add -A
+</code></pre></div>
+<p>This will add all the files in our directory to Git except those listed in our .gitignore file. Now that we&#39;ve added the files we&#39;re going to <em>commit</em> these files to the main project. Run:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git commit -m &quot;initial commit&quot;
+</code></pre></div>
+<p>The portion in quotes explains what was changed in this commit. In this case, we&#39;re using the description &#39;initial commit&#39; as this is the initial file load. So we&#39;ve saved our changes, but this is just on your local computer, the last step is to <em>push</em> these changes up to GitHub. We do this using:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git push
+</code></pre></div>
+<p>With that your files have been uploaded to GitHub and we&#39;ve got a site up and running. </p>
+
+<h4>7. Check Out your New Site</h4>
+
+<p>Open a browser and navigate to your newly created site at <code>username.github.io</code>. Cool right?</p>
+
 <hr>
 
 <h2><a name="customdomain"></a>Custom Domain</h2>
+
+<hr>
+
+<h2><a name="nextsteps"></a>Next Steps</h2>
 
 <hr>

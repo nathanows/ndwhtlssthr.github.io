@@ -5,9 +5,10 @@ This tutorial covers step by step how to setup and publish a very simple Jekyll 
 - [**Audience**](#audience): Who this tutorial is written for
 - [**Goal**](#goal): What will be accomplished in this tutorial
 - [**Setup**](#setup): Setting up the necessary development environment to install and run Jekyll
-- [**Jekyll/Poole**](#jekyllpoole): Getting up and running using Jekyll and getting started with the Poole theme
+- [**Jekyll/Hyde**](#jekyllhyde): Getting up and running using Jekyll and getting started with the Hyde theme
 - [**GitHub Pages**](#githubpages): Loading your page to GitHub Pages
 - [**Custom Domain**](#customdomain): Linking your newly created site to your personal domain
+- [**Next Steps**](#nextsteps): You've got a generic text online, now what?
 
 ---
 
@@ -22,7 +23,7 @@ The other plus if you're a beginner is that I'm going to explain things in a way
 ---
 
 ##<a name="goal"></a>Goal
-This tutorial will walk you step by step through setting up the development environment to install [Jekyll](http://jekyllrb.com/), creating a Jekyll blog using the [Poole](http://getpoole.com/), hosting your site on [GitHub Pages](https://pages.github.com/), and adding a domain alias so that you can link your GitHub Pages site to your own domain. 
+This tutorial will walk you step by step through setting up the development environment to install [Jekyll](http://jekyllrb.com/), creating a Jekyll blog using the [Hyde](http://hyde.getpoole.com/), hosting your site on [GitHub Pages](https://pages.github.com/), and adding a domain alias so that you can link your GitHub Pages site to your own domain. 
 
 This tutorial will not cover customizing the site or creating/managing posts, but if you want to go further, stay tuned, that's coming up next. You'll learn alongside me. 
 
@@ -113,7 +114,7 @@ And that's it, we're all setup! We should be ready to install Jekyll and get sta
 
 ---
 
-##<a name="jekyllpoole"></a>Jekyll / Poole
+##<a name="jekyllpoole"></a>Jekyll / Hyde
 Assuming you've completed the setup above, you're ready to get started with Jekyll itself, and it should be really easy!
 
 ####1.Install Jekyll
@@ -132,13 +133,156 @@ You'll see that in additional to the `jekyll` gem itself, it also installed, in 
 
 We're going to hold off on testing out Jekyll on anything right now and move on to getting our template set up so we've got something to display when we fire it up. 
 
+####2. Download Poole > Hyde Theme
+For this site I chose to use a Jekyll theme called [Hyde](http://hyde.getpoole.com/) which is based on an underlying theme, [Poole](http://getpoole.com/). While a theme isn't completely necessary and we could create our own templates, we're going to use this as a foundation to build off of (a little instant gratification...). 
+
+Go to the [Hyde Website](http://hyde.getpoole.com) and on the left sidebar click on Download. Unzip this file and move it to a new directory where you want to house this site (the live site will live on GitHub, but this is where you'll edit it from). For now I recommend moving it in to your Documents folder as this is where the rest of the tutorial will work from. Rename this directory as you'd like (for the purposes of this tutorial I'll call the directory `hyde-blog`). 
+
+####3. It lives!
+Alright, we've got a site. Let's fire up Jekyll and take a look at in the browser. Right now this will just be an exact replica of what's on the Hyde website, but it's a start. Open up a Terminal window and navigate to the project directory. 
+
+I'm assuming most people will be to navigate to the project directory, but just to be thorough, type `pwd` to see your current location. Type `ls` to list the files in the current directory, to navigate to the Documents directory type `cd Documents`, then if you're using the naming I used above type `cd hyde-blog` (or whatever you named your project directory).
+
+Once you're in the project directory we'll start up Jekyll's built in development server so we can view the site locally. Start the server by running:
+
+```
+jekyll serve
+```
+With this we've got a live version of the site running locally. 
+
+####4. Check out the site
+To access the site, open a new browser window and navigate to `localhost:4000`. And there's the site! After you've looked around, let's stop the server for now. go back to the Terminal window where you started the server and press `CTRL+C`.
+
+####5. Minor edits
+That's cool and all, but let's make a couple of quick edits just so it's clear that this is our site and not just the stock template. In Finder, navigate to your project folder and open `_config.yml` in your favorite text editor (I'm using [Sublime Text](http://www.sublimetext.com/)). 	It looks like this:
+
+```
+# Dependencies
+markdown:         redcarpet
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Hyde
+tagline:          'A Jekyll theme'
+description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+url:              http://hyde.getpoole.com
+
+author:
+  name:           'Mark Otto'
+  url:            https://twitter.com/mdo
+
+paginate:         5
+
+# Custom vars
+version:          2.0.0
+
+github:
+  repo:           https://github.com/poole/hyde
+```
+
+For the sake of this test run, 	let's update the `#setup` section (update all sections except for url). After you've updated save the file and close out. Go back to your Terminal window and restart the dev server:
+
+```
+jekyll serve
+```
+In your browser window refresh the `localhost:4000` page. It's nothing big... but it's something! But what good is a local-only website? Next we'll get this site up and running on GitHub pages.
+
 ---
 
 ##<a name="githubpages"></a>GitHub Pages
+Now we've got a local site (OK, we've downloaded a template...), so let's get this online so we can share this out to the world. I mean, what if the main Hyde site goes down! To do this we're going to use GitHub Pages. GitHub Pages are public webpages freely hosted and easily published through the GitHub site. 
+
+####1. Create GitHub Account
+The first thing you'll need to do, if you don't have one already, is to create a GitHub account by going to the [GitHub Website](https://github.com/). While the last part of this tutorial will walk through the process of assigning a custom domain name to the page, but if you don't have or don't plan on using a personal domain name pay attention to the GitHub username that you select because your website URL will be `username.github.io`.
+
+####2. Set up Git
+a. [Download and install the latest version of Git](http://git-scm.com/downloads).
+b. Open Terminal and tell Git your *name* so that your commits will be properly labeled by typing:
+
+	```
+	git config --global user.name "YOUR NAME"
+	```
+c. Next tell Git the *email address* that should be associated with your Git commits. This email needs to be the same one that you used to setup your GitHub account.
+	
+	```
+	git config --global user.email "YOUR EMAIL ADDRESS"
+	```
+	
+####3. Authenticating to GitHub from Git
+When you commit to or clone a GitHub repository from Git, you'll need to authenticate to GitHub using either HTTPS or SSH. GitHub recommends using SSH so that's what will be used for this tutorial. 
+
+Follow the process outlined on the GitHub website to [generate the necessary SSH keys](https://help.github.com/articles/generating-ssh-keys). 
+
+SSH keys are a way to identify trusted computers, without involving passwords. The steps on the GitHub site will walk you through generating an SSH key and then adding the public key to your GitHub account. 
+
+####4. Create a New GitHub Repository
+Now that your account is all set up, we need to create the Repository (this is the GitHub project directory) that we will load this site to. 
+
+a. Log in to your GitHub account
+b. On the home page, in the bottom right portion of the screen in the 'Your Repositories' section click on `+ New repository`
+c. Enter your `Repository name`. IMPORTANT: This needs to be `username.github.io` (replacing 'username' with your GitHub account user name). The site will not work if this repository is not named correctly. 
+d. Enter a brief site `Description`
+e. Leave this as a `Public` repository
+f. Don't select to initialize a README file
+g. Click `Create repository`
+
+We're getting close. You've now setup the landing zone for your future site.
+
+####5. .gitignore
+One of the directories that Jekyll generates when serving up the site locally is a _site directory. This file contains all of the necessary static files to view the site. For the purposes of our GitHub Page we don't actually want to upload this, so we're going to create a .gitignore file in our directory which will tell Git to ignore the files listed in it.
+
+	
+#Need
+#to
+#add
+#this
+#still.
+
+
+
+
+####6. Initialize your New Repository
+It's time to load our files to this new repository. Open up a Terminal window and navigate to your project folder. Once you're in this directory we first need to clone this blank repository we just created (we're basically referencing this GitHub location on our local computer). To do this run:
+
+```
+git clone https://github.com/username/username.github.io
+```
+Next we're going to tell Git that the directory we're in should be tracked by Git. Do this with:
+
+```
+git init
+```
+Now that Git knows what this location is, we need to add all of our files in to the Git management system by using: 
+
+```
+git add -A
+```
+This will add all the files in our directory to Git except those listed in our .gitignore file. Now that we've added the files we're going to *commit* these files to the main project. Run:
+
+```
+git commit -m "initial commit"
+```
+The portion in quotes explains what was changed in this commit. In this case, we're using the description 'initial commit' as this is the initial file load. So we've saved our changes, but this is just on your local computer, the last step is to *push* these changes up to GitHub. We do this using:
+
+```
+git push
+```
+With that your files have been uploaded to GitHub and we've got a site up and running. 
+
+####7. Check Out your New Site
+Open a browser and navigate to your newly created site at `username.github.io`. Cool right?
+
 
 ---
 
 ##<a name="customdomain"></a>Custom Domain
+
+
+---
+##<a name="nextsteps"></a>Next Steps
 
 
 ---
