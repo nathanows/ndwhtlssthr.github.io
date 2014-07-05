@@ -242,9 +242,9 @@ One of the directories that Jekyll generates when serving up the site locally is
 
 a. Create our `.gitignore` file by navigating to the project directory in Terminal, and running:
 
-	```
-	touch .gitignore
-	```
+```
+touch .gitignore
+```
 
 b. Because this file starts with a '.', the OS will hide this file by default. There are a few ways to show this file, so choose one of the following and open the newly created file in your text editor:
 	- I use a Finder replacement called [Path Finder](http://cocoatech.com/pathfinder/) in which I can just go to the view menu and select 'Show Invisible Files'.
@@ -253,22 +253,22 @@ b. Because this file starts with a '.', the OS will hide this file by default. T
 	
 c. Once you've opened the `.gitignore` file, we're going to add two new portions. In the first line of the document let's take care of the `_site` directory. Type:
 
-	```
-	_site/
-	```
+```
+_site/
+```
 That takes care of the first directory. Next we're going to ignore any OS generated files that we wont need (when you un-hid files you shound also have seen a .DS_Store file show up, this is one of those OS generated files that we don't need). To hide this, and others, below the _site entry we added, copy and paste:
 
-	```
-	# OS generated files #
-	######################
-	.DS_Store
-	.DS_Store?
-	._*
-	.Spotlight-V100
-	.Trashes
-	ehthumbs.db
-	Thumbs.db 
-	```
+```
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db 
+```
 And that's it. You can save and close out of this file. We're ready to get everything we didn't just exclude hosted on GitHub.
 
 
