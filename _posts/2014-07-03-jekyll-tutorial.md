@@ -1,3 +1,8 @@
+---
+layout: post
+title: A Beginner's Jekyll Tutorial
+---
+
 This blog is based on the Jekyll framework and hosted on GitHub Pages. As I was going through the process of choosing a platform I came across Jekyll and was intrigued by the concept of hosting directly on GitHub, which, as someone trying to immerse myself in the development ecosystem, is intimidating, but seemed like a great opportunity to force myself to get aquainted with GitHub. Still, functionality is obviously number one, and beyond being a platform I'm purely interested in, Jekyll is known to be fast and flexible. Oh yeah, and it's free! 
 
 This tutorial covers step by step how to setup and publish a very simple Jekyll blog and publish it to GitHub Pages:
