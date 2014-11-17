@@ -227,13 +227,13 @@ SSH keys are a way to identify trusted computers, without involving passwords. T
 ####4. Create a New GitHub Repository
 Now that your account is all set up, we need to create the Repository (this is the GitHub project directory) that we will load this site to. 
 
-a. Log in to your GitHub account
-b. On the home page, in the bottom right portion of the screen in the 'Your Repositories' section click on `+ New repository`
-c. Enter your `Repository name`. IMPORTANT: This needs to be `username.github.io` (replacing 'username' with your GitHub account user name). The site will not work if this repository is not named correctly. 
-d. Enter a brief site `Description`
-e. Leave this as a `Public` repository
-f. Don't select to initialize a README file
-g. Click `Create repository`
+1. Log in to your GitHub account
+2. On the home page, in the bottom right portion of the screen in the 'Your Repositories' section click on `+ New repository`
+3. Enter your `Repository name`. IMPORTANT: This needs to be `username.github.io` (replacing 'username' with your GitHub account user name). The site will not work if this repository is not named correctly. 
+4. Enter a brief site `Description`
+5. Leave this as a `Public` repository
+6. Don't select to initialize a README file
+7. Click `Create repository`
 
 We're getting close. You've now setup the landing zone for your future site.
 
