@@ -38,7 +38,7 @@ This tutorial will not cover customizing the site or creating/managing posts, bu
 Before we can start using Jekyll we need to install the correct components of our development environment. Remember, I'm starting from scratch, so you may be able to skip most of this if you've done any sort of Ruby development in the past. I'll also note that it's possible not every step in this is necessary, I ran in to errors as I was trying to get Jekyll installed and these are the components that I needed to install before it worked. You can try installing Jekyll right away by typing the following command at the terminal prompt:
 
 ```
-sudo gem install jekyll
+gem install jekyll
 ```
 
 NOTE: This entire setup process was performed on a Mac running OSX 10.9, though everything should still work correctly on earlier versions of Macs. If you're running linux the same process I outline below should work for you. If you're on Windows, you've got an uphill battle as Jekyll doesn't officially support Windows, but tutorials exist, like [this one](https://github.com/juthilo/run-jekyll-on-windows).
@@ -126,14 +126,14 @@ Assuming you've completed the setup above, you're ready to get started with Jeky
 To install Jekyll we're going to use RubyGems which is software (it comes packaged with all Ruby versions > 1.9) that allows you to easily download, install, and use ruby software packages, one of which is Jekyll. To install open a terminal window and run:
 
 ```
-sudo gem install jekyll
-``` 
+gem install jekyll
+```
 The install will take a few mins, and when it's done you should see something similar to the following:
 
-``` 
+```
 Done installing documentation for blankslate, celluloid, classifier, coffee-script, coffee-script-source, colorator, execjs, fast-stemmer, ffi, hitimes, jekyll, jekyll-coffeescript, jekyll-gist, jekyll-paginate, jekyll-sass-converter, jekyll-watch, kramdown, liquid, listen, mercenary, parslet, posix-spawn, pygments.rb, rb-fsevent, rb-inotify, redcarpet, safe_yaml, sass, timers, toml, yajl-ruby after 24 seconds
 31 gems installed
-``` 
+```
 You'll see that in additional to the `jekyll` gem itself, it also installed, in my case, 30 additional dependent gems that Jekyll uses. 
 
 We're going to hold off on testing out Jekyll on anything right now and move on to getting our template set up so we've got something to display when we fire it up. 
